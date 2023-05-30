@@ -1,0 +1,57 @@
+{
+  "private": true,
+  "name": "template",
+  "version": "0.0.0",
+  "description": "html,innerHTML,string,template,rendering engine",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "main": "index.js",
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "public"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "sideEffects": true,
+  "scripts": {
+    "build": "npm-run-all eslint:check clean --parallel build:*",
+    "release": "standard-version",
+    "commit": "git-cz",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest",
+    "husky-install": "husky install",
+    "---------style---------": "",
+    "prettier:help": "prettier --help",
+    "prettier:check": "prettier --cache --check .",
+    "prettier:write": "prettier --cache --write .",
+    "---------quatity---------": "",
+    "eslint:help": "eslint --help",
+    "eslint:check": "eslint --cache **/*.{js,cjs}",
+    "eslint:write": "eslint --cache --fix **/*.{js,cjs}",
+    "commitlint:check": "commitlint --edit ${1}",
+    "---------build---------": "",
+    "clean": "rimraf dist"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.3",
+    "@commitlint/config-conventional": "^17.6.3",
+    "@commitlint/cz-commitlint": "^17.5.0",
+    "commitizen": "^4.3.0",
+    "eslint": "^8.39.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.3",
+    "jest": "^29.5.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.8.8",
+    "rimraf": "^5.0.0",
+    "standard-version": "^9.5.0"
+  },
+  "dependencies": {}
+}
